@@ -82,7 +82,7 @@ const transcribeUserAudio = ai.defineTool(
 
 const responseAndFeedbackSchema = z.object({
     response: z.string().describe("The AI's full response, including emotional and pacing cues in brackets like [thoughtful] or [sighs]. If the session is over, this should be the final concluding remark before feedback."),
-    isSessionComplete: z.boolean().describe("Set to true only if the conversation has reached a natural conclusion (e.g., after 4-5 exchanges) and it's time to provide feedback."),
+    isSessionComplete: z.boolean().describe("Set to true only if the conversation has reached a natural conclusion (e.g., after 10-12 exchanges) and it's time to provide feedback."),
     feedback: PerformanceFeedbackSchema.optional().describe("Provide this structured feedback object ONLY if isSessionComplete is true."),
 });
 
@@ -103,7 +103,7 @@ const generateResponsePrompt = ai.definePrompt({
 2.  **Conversation Arc & Conclusion:**
     *   **First Message:** If the chat history is empty, you MUST start with a brief, friendly introduction. Example: "Hi there, [short pause] thanks for coming in today. I'm Alex, and I'll be leading your interview. To start, [medium pause] could you tell me a little bit about yourself and what led you to apply for this role?"
     *   **Progression:** After the intro, ask progressively deeper questions based on the user's responses.
-    *   **Determine Completion:** After about 4-5 exchanges, you MUST decide the interview is over. Set \`isSessionComplete\` to \`true\`.
+    *   **Determine Completion:** After about 10-12 exchanges, you MUST decide the interview is over. Set \`isSessionComplete\` to \`true\`.
     *   **Concluding Remark:** If the session is complete, your 'response' field should be a brief concluding remark. Example: "Alright, that was very insightful. [medium pause] I think I have everything I need for now. Thanks for your time."
     *   **Generate Final Feedback:** If \`isSessionComplete\` is true, you MUST provide a detailed, structured feedback object in the 'feedback' field. Evaluate the user's performance throughout the entire conversation.
 
