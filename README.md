@@ -32,11 +32,9 @@ The application is built on a modern, server-centric architecture using the Next
 
     2.  *Response Generation*: The flow's main prompt receives the full conversation history, the AI's defined persona (e.g., HR manager), and the user's latest transcribed response. It instructs the model to act as a role-playing agent. This is where the agentic behavior emerges: the AI is tasked with asking relevant questions, deciding when the conversation has reached a natural conclusion, and generating structured feedback.
 
-    3.  *Expressive Speech Synthesis*: A key part of the conversational quality comes from the speech. 
+    3.  *Expressive Speech Synthesis*: A key part of the conversational quality comes from the speech. The response-generation prompt explicitly instructs the model to inject non-verbal cues (e.g., [short pause], [laughing], [uhm]) into its text response. This text, with cues, is then passed to a Gemini TTS model. The TTS model is capable of interpreting these cues to produce more natural, human-sounding speech with appropriate pacing and emotional tone.
 
-The response-generation prompt explicitly instructs the model to inject non-verbal cues (e.g., [short pause], [laughing], [uhm]) into its text response. This text, with cues, is then passed to a Gemini TTS model. The TTS model is capable of interpreting these cues to produce more natural, human-sounding speech with appropriate pacing and emotional tone.
-
-  4.  *State Management & Data Transfer*: The flow returns a complete package to the client: the display text (with cues removed), the audio data URI for playback, the user's transcription, and the final feedback object when the session ends. This consolidates all AI-related processing into a single, atomic server action.
+  iv.  *State Management & Data Transfer*: The flow returns a complete package to the client: the display text (with cues removed), the audio data URI for playback, the user's transcription, and the final feedback object when the session ends. This consolidates all AI-related processing into a single, atomic server action.
 
 
 
