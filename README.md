@@ -36,7 +36,9 @@ The application is built on a modern, server-centric architecture using the Next
 
 The response-generation prompt explicitly instructs the model to inject non-verbal cues (e.g., [short pause], [laughing], [uhm]) into its text response. This text, with cues, is then passed to a Gemini TTS model. The TTS model is capable of interpreting these cues to produce more natural, human-sounding speech with appropriate pacing and emotional tone.
 
-    4.  *State Management & Data Transfer*: The flow returns a complete package to the client: the display text (with cues removed), the audio data URI for playback, the user's transcription, and the final feedback object when the session ends. This consolidates all AI-related processing into a single, atomic server action.
+  4.  *State Management & Data Transfer*: The flow returns a complete package to the client: the display text (with cues removed), the audio data URI for playback, the user's transcription, and the final feedback object when the session ends. This consolidates all AI-related processing into a single, atomic server action.
+
+
 
 ### 2. Interactive Client-Side
 
